@@ -1,0 +1,32 @@
+@import '/src/assets/scss/variables.scss';
+@import '/src/assets/scss/grid.scss';
+
+.filterBar {
+    display: flex;
+    justify-content: space-between;
+    padding: $base-padding;
+    margin: 0 $base-margin;
+    border-bottom: 1px solid $lePink;
+    color: $leDarkPink;
+    font-size: $font-size-md;
+
+    .filter-sort, .filter-size {
+        
+        select {
+            margin-left: 10px;
+            cursor: pointer;
+            padding: 5px;
+            border: none;
+            background-color: $lePink;
+            border-radius: 10px;
+            outline: none;
+            color: $white;
+            transition: 0.3s;
+            
+            &:hover, &:focus {
+                opacity: 0.9;
+            }
+
+        }
+    }
+}
