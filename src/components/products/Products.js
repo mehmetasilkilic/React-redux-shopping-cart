@@ -14,7 +14,16 @@ const Products = () => {
             <h2>Products</h2>
             <hr />
             <FilterBar
-                length={cardData.length}
+                length={cardData
+                    .products
+                    .filter(item => {
+                        if (size === "") {
+                            return item
+                        } else if (item.availableSizes.includes(size)) {
+                            return item
+                        }
+                    })
+                    .length}
                 size={cardData.size}
                 sort={cardData.sort}
                 filterProducts={e => { setSize(e.target.value) }}
@@ -22,34 +31,38 @@ const Products = () => {
             />
             <div className="products-wrapper">
                 {
-                    cardData.products.slice().sort((a, b) => (
-                        sort === "lowest"
-                            ? a.price > b.price
-                                ? 1
-                                : -1
-                            : sort === "highest"
-                                ? a.price < b.price
+                    cardData.products
+                        .slice()
+                        .sort((a, b) => (
+                            sort === "lowest"
+                                ? a.price > b.price
                                     ? 1
                                     : -1
-                                : a._id > b._id
-                                    ? 1
-                                    : -1
-                    )).filter(item => {
-                        if (size === "") {
-                            return item
-                        } else if (item.availableSizes.includes(size)) {
-                            return item
-                        }
-                    }).map((item, index) => (
-                        <div className="card-wrapper col-lg-12 col-6" key={index}>
-                            <Card
-                                image={item.image}
-                                title={item.title}
-                                description={item.description}
-                                price={item.price}
-                            />
-                        </div>
-                    ))
+                                : sort === "highest"
+                                    ? a.price < b.price
+                                        ? 1
+                                        : -1
+                                    : a._id > b._id
+                                        ? 1
+                                        : -1
+                        ))
+                        .filter(item => {
+                            if (size === "") {
+                                return item
+                            } else if (item.availableSizes.includes(size)) {
+                                return item
+                            }
+                        })
+                        .map((item, index) => (
+                            <div className="card-wrapper col-lg-12 col-6" key={index}>
+                                <Card
+                                    image={item.image}
+                                    title={item.title}
+                                    description={item.description}
+                                    price={item.price}
+                                />
+                            </div>
+                        ))
                 }
             </div>
         </div>
