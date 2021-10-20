@@ -1,0 +1,12 @@
+@import '/src/assets/scss/variables.scss';
+
+
+.home {
+    background-color: $leSand;
+    
+    .wrapper {
+        display: flex;
+        width: 80%;
+        margin: 0 auto;
+    }
+}

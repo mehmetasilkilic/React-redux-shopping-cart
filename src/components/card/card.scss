@@ -1,1 +1,69 @@
 @import '/src/assets/scss/variables.scss';
+
+.card {
+    display: flex;
+    background-color: $lightGray;
+    box-shadow: $base-box-shadow;
+    border-radius: $base-border-radius;
+    overflow: hidden;
+
+    .img-wrapper {
+        display: flex;
+        width: 20vh;
+        height: 30vh;
+        cursor: pointer;
+
+        img {
+            padding: 10px;
+            object-fit: cover;
+            border-radius: $base-border-radius;
+        }
+    }
+    .wrapper {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+
+        .title-wrapper {
+            padding: 10px;
+            border-bottom: 1px solid $leDarkPink;
+            font-size: $base-font-size;
+            cursor: pointer;
+        }
+
+        .desc-wrapper {
+            padding: 10px;
+            font-size: $font-size-sm;
+        }
+
+        .price-wrapper {
+            padding: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+
+            h4 {
+                font-size: $base-font-size;
+                padding: 10px;
+                border: 1px solid $leDarkPink;
+                border-radius: 10px;
+                margin-right: 10px;
+            }
+
+            button {
+                padding: 10px;
+                background-color: $leDarkPink;
+                font-size: $base-font-size;
+                color: $leSand;
+                border: 1px solid $leDarkPink;
+                border-radius: 10px;
+                cursor: pointer;
+                transition: opacity 0.4s;
+
+                &:hover {
+                    opacity: 0.9;
+                }
+            }
+        }
+    }
+}

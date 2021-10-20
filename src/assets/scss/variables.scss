@@ -22,7 +22,9 @@ a {
 
 hr {
   border: 0;
-  border-top: 1px dotted #efefef;
+  border-top: 3px solid #bf7565;
+  margin: 0 10px 0 10px;
+  border-radius: 100px;
 }
 
 img {
@@ -41,6 +43,7 @@ $green: #19e635 !default;
 $orange: #ffa600 !default;
 $purple: #9900ff !default;
 $gray: #808080 !default;
+$lightGray: #ddd !default;
 $black: black !default;
 $white: white !default;
 
@@ -48,6 +51,9 @@ $white: white !default;
 
 $leBlue: #2b70a0 !default;
 $leFadedBlue: #4f6cad !default;
+$leSand: #c7baa8 !default;
+$lePink: #bf7565 !default;
+$leDarkPink: #773f35 !default;
 
 
 // spacing
@@ -59,11 +65,13 @@ $base-border-thickness: 1px !default;
 $base-border-radius: 20px !default;
 
 // box-shadow
-$base-box-shadow: 1px 3px 5px rgba(0,0,0,0.1) !default;
+$base-box-shadow: 1px 3px 5px rgba(0, 0, 0, 0.445) !default;
 
 // font sizes
 $base-font-size: 1rem !default;
+$font-size-xs: $base-font-size * 0.5 !default;
 $font-size-sm: $base-font-size * 0.75 !default;
 $font-size-lg: $base-font-size * 1.5 !default;
 $font-size-xl: $base-font-size * 2 !default;
 $font-size-xxl: $base-font-size * 3 !default;
+
