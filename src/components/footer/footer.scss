@@ -1,2 +1,72 @@
 @import '/src/assets/scss/variables.scss';
 
+.footer {
+    display: flex;
+    justify-content: center;
+    border-bottom: 4px solid $lePink;
+
+    .left {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        padding: 20px;
+
+        .logo {
+            cursor: pointer;
+        }
+
+        .desc {
+            margin: 20px 0px; 
+        }
+
+        .socialContainer {
+            display: flex;
+
+            .socialIcon {
+                color: $leDarkPink;
+                margin-right: $base-margin;
+                cursor: pointer;
+            }
+        }
+    }
+
+    .center {
+        flex: 2;
+        padding: 20px;
+
+        .title {
+            padding-bottom: $base-padding;
+            margin-bottom: $base-margin;
+            border-bottom: 1px solid $leDarkPink;
+        }
+
+        ul {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            display: flex;
+            flex-wrap: wrap;
+
+            li {
+                width: 50%;
+                margin-bottom: 10px;
+                cursor: pointer;
+            }
+        }
+    }
+
+    .right {
+        flex: 1;
+        padding: 20px;
+
+        .contactItem {
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+        }
+
+        img {
+            width: 50%;
+        }
+    }
+}
