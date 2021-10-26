@@ -1,15 +1,17 @@
 import React from 'react'
 import './home.scss'
+import HomeSlider from '../../components/slider/HomeSlider'
+import Categories from '../../components/categories/Categories'
 import Products from '../../components/products/Products'
-import Cart from '../../components/cart/Cart'
+import Newsletter from '../../components/newsletter/Newsletter'
 
 const Home = () => {
     return (
         <div className="home">
-            <div className="wrapper">
+                <HomeSlider />
+                <Categories />
                 <Products />
-                <Cart />
-            </div>
+                <Newsletter />
         </div>
     )
 }

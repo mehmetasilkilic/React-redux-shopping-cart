@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import './products.scss'
-import Card from '../card/Card'
+import Product from '../product/Product'
 import FilterBar from '../../components/filterBar/FilterBar'
 import cardData from '../../assets/JsonData/data.json'
 
@@ -9,20 +9,36 @@ const Products = () => {
     const [size, setSize] = useState('')
     const [sort, setSort] = useState('')
 
+    const productNumber = item => {
+        if (size === "") {
+            return item
+        } else if (item.availableSizes.includes(size)) {
+            return item
+        }
+    }
+
+    const orderProducts = (a, b) => (
+        sort === "lowest"
+            ? a.price > b.price
+                ? 1
+                : -1
+            : sort === "highest"
+                ? a.price < b.price
+                    ? 1
+                    : -1
+                : a._id > b._id
+                    ? 1
+                    : -1
+    )
+
     return (
         <div className="products">
-            <h2>Products</h2>
+            <h2>Popular Products</h2>
             <hr />
             <FilterBar
                 length={cardData
                     .products
-                    .filter(item => {
-                        if (size === "") {
-                            return item
-                        } else if (item.availableSizes.includes(size)) {
-                            return item
-                        }
-                    })
+                    .filter(productNumber)
                     .length}
                 size={cardData.size}
                 sort={cardData.sort}
@@ -31,34 +47,16 @@ const Products = () => {
             />
             <div className="products-wrapper">
                 {
-                    cardData.products
+                    cardData
+                        .products
                         .slice()
-                        .sort((a, b) => (
-                            sort === "lowest"
-                                ? a.price > b.price
-                                    ? 1
-                                    : -1
-                                : sort === "highest"
-                                    ? a.price < b.price
-                                        ? 1
-                                        : -1
-                                    : a._id > b._id
-                                        ? 1
-                                        : -1
-                        ))
-                        .filter(item => {
-                            if (size === "") {
-                                return item
-                            } else if (item.availableSizes.includes(size)) {
-                                return item
-                            }
-                        })
-                        .map((item, index) => (
-                            <div className="card-wrapper col-lg-12 col-6" key={index}>
-                                <Card
+                        .sort(orderProducts)
+                        .filter(productNumber)
+                        .map((item, id) => (
+                            <div className="card-wrapper col-sm-12 col-md-6 col-lg-4 col-2" key={id}>
+                                <Product
                                     image={item.image}
                                     title={item.title}
-                                    description={item.description}
                                     price={item.price}
                                 />
                             </div>

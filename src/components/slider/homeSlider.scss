@@ -1,0 +1,48 @@
+@import '/src/assets/scss/variables.scss';
+
+.homeSlider {
+    height: 94vh;
+    overflow: hidden;
+
+    .slide {
+        display: flex !important;
+        align-items: center;
+
+        .slideImg {
+            flex: 1;
+            height: 94vh;
+            object-fit: cover;
+        }
+
+        .infoContainer {
+            flex: 1;
+            padding: 50px;
+
+            .title {
+                font-size: 70px;
+            }
+
+            .desc {
+                margin: 50px 0px;
+                font-size: 20px;
+                font-weight: 500;
+                letter-spacing: 3px;
+            }
+
+            button {
+                padding: $base-padding;
+                background-color: $leDarkPink;
+                font-size: $base-font-size;
+                color: $leSand;
+                border: 1px solid $leDarkPink;
+                border-radius: $base-border-radius;
+                cursor: pointer;
+                transition: opacity 0.4s;
+    
+                &:hover {
+                    opacity: 0.9;
+                }
+            }    
+        }
+    }
+}

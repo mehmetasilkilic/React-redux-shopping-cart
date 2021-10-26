@@ -1,0 +1,58 @@
+@import '/src/assets/scss/variables.scss';
+
+.categoryItem {
+    display: flex;
+    flex-direction: column;
+    box-shadow: $base-box-shadow;
+    border-radius: $base-border-radius;
+    overflow: hidden;
+    position: relative;
+    height: 70vh;
+    margin: $base-margin;
+
+    .imgWrapper {
+        display: flex;
+        cursor: pointer;
+
+        img {
+            object-fit: cover;
+            border-radius: $base-border-radius;
+        }
+    }
+
+    .info {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+
+        .title {
+            color: $lePink;
+            font-size: $font-size-xl;
+            margin-bottom: 20px;
+        }
+
+        button {
+            padding: $base-padding;
+            background-color: $white;
+            font-size: $base-font-size;
+            font-weight: bold;
+            color: $leDarkPink;
+            border: none;
+            border-radius: $base-border-radius;
+            cursor: pointer;
+            transition: 0.4s;
+    
+            &:hover {
+                color: $white;
+                background-color: $leDarkPink;
+
+            }
+        }
+    }
+}

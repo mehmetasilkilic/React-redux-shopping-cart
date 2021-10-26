@@ -1,0 +1,45 @@
+@import '/src/assets/scss/variables.scss';
+
+.newsletter {
+    margin-top: $base-margin;
+    height: 30vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    border-top: 4px solid $lePink;
+    border-bottom: 4px solid $lePink;
+
+    .title {
+        font-size: $font-size-xxl;
+        margin-bottom: $base-margin;
+    }
+
+    .desc {
+        font-size: $font-size-md;
+        font-weight: 300;
+        margin-bottom: $base-margin;
+    }
+
+    .inputContainer {
+        width: 50%;
+        height: 40px;
+        display: flex;
+        justify-content: space-between;
+
+        input {
+            border: none;
+            flex: 8;
+            padding-left: $base-padding;
+            outline: none;
+        }
+
+        button {
+            flex: 1;
+            border: none;
+            cursor: pointer;
+            background-color: $leDarkPink;
+            color: white;
+        }
+    }
+}

@@ -2,13 +2,12 @@
 @import '/src/assets/scss/grid.scss';
 
 .products {
-    flex: 5;
-    margin: 10px 0;
+    margin: 0 $base-margin;
 
     h2 {
         font-size: $font-size-xl;
         color: $lePink;
-        padding: 10px 0 0 10px;
+        padding: $base-padding;
     }
 
     .products-wrapper {
