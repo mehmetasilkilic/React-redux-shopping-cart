@@ -1,0 +1,55 @@
+@import '/src/assets/scss/variables.scss';
+
+.register {
+    width: 100vw;
+    height: 100vh;
+    background: linear-gradient(
+        rgba(255, 255, 255, 0.5),
+        rgba(255, 255, 255, 0.5)
+      ),
+      url("https://images.pexels.com/photos/6984661/pexels-photo-6984661.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940")
+        center;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .wrapper {
+        width: 40%;
+        padding: $base-padding;
+        background-color: $white;
+
+        form {
+            display: flex;
+            flex-direction: column;
+
+            input {
+                flex: 1;
+                min-width: 40%;
+                margin: $base-margin 0;
+                padding: $base-padding;
+                outline: none;
+            }
+
+            span {
+                font-size: $base-font-size;
+                margin: $base-margin 0;
+            }
+
+            button {
+                padding: $base-padding 5px;
+                background-color: $leDarkPink;
+                font-size: $base-font-size;
+                color: $leSand;
+                border: 1px solid $leDarkPink;
+                border-radius: $base-border-radius;
+                cursor: pointer;
+                transition: opacity 0.4s;
+
+                &:hover {
+                    opacity: 0.9;
+                }
+            }
+        }
+    }
+}

@@ -1,6 +1,6 @@
 import React from 'react'
 import './singleProduct.scss'
-import DeleteIcon from '@mui/icons-material/Delete';
+import RemoveIcon from '@mui/icons-material/Remove';
 import AddIcon from '@mui/icons-material/Add';
 
 const SingleProduct = () => {
@@ -31,7 +31,7 @@ const SingleProduct = () => {
                 </div>
                 <div className="addContainer">
                     <div className="amountContainer">
-                        <DeleteIcon />
+                        <RemoveIcon />
                         <span>1</span>
                         <AddIcon />
                     </div>
