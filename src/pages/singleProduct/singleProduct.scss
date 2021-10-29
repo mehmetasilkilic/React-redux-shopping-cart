@@ -3,6 +3,8 @@
 .singleProduct {
     padding: $base-padding;
     display: flex;
+    width: 90%;
+    margin: 0 auto;
 
     .imgContainer {
         flex: 1px;

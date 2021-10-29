@@ -1,13 +1,28 @@
-import React, { useState } from 'react'
-import './products.scss'
-import Product from '../product/Product'
-import FilterBar from '../../components/filterBar/FilterBar'
-import cardData from '../../assets/JsonData/data.json'
+import React, { useState, useEffect } from 'react';
+import './products.scss';
+import Product from '../product/Product';
+import FilterBar from '../../components/filterBar/FilterBar';
+import axios from "axios";
 
-const Products = () => {
+const Products = ({ cat }) => {
 
+    const [products, setProducts] = useState([]);
     const [size, setSize] = useState('')
     const [sort, setSort] = useState('')
+
+    useEffect(() => {
+        const getProducts = async () => {
+            try {
+                const res = await axios.get(
+                    cat
+                        ? `http://localhost:5000/api/products?category=${cat}`
+                        : "http://localhost:5000/api/products"
+                );
+                setProducts(res.data);
+            } catch (err) { }
+        };
+        getProducts();
+    }, [cat]);
 
     const productNumber = item => {
         if (size === "") {
@@ -36,28 +51,28 @@ const Products = () => {
             <h2>Popular Products</h2>
             <hr />
             <FilterBar
-                length={cardData
-                    .products
+                length={
+                    products
                     .filter(productNumber)
                     .length}
-                size={cardData.size}
-                sort={cardData.sort}
+                size={products.size}
+                sort={products.sort}
                 filterProducts={e => { setSize(e.target.value) }}
                 sortProducts={e => { setSort(e.target.value) }}
             />
             <div className="products-wrapper">
                 {
-                    cardData
-                        .products
+                    products
                         .slice()
                         .sort(orderProducts)
                         .filter(productNumber)
                         .map((item, id) => (
                             <div className="card-wrapper col-sm-12 col-md-6 col-lg-4 col-2" key={id}>
                                 <Product
-                                    image={item.image}
+                                    img={item.img}
                                     title={item.title}
                                     price={item.price}
+                                    _id={item._id}
                                 />
                             </div>
                         ))

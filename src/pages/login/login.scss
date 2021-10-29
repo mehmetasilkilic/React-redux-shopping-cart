@@ -44,6 +44,16 @@
                 &:hover {
                     opacity: 0.9;
                 }
+
+                &:disabled{
+                    opacity: 0.3;
+                    cursor: not-allowed;
+                }
+            }
+
+            span {
+                margin-top: 5px;
+                color: $red;
             }
 
             a {
