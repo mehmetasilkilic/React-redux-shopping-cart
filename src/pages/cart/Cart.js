@@ -2,14 +2,17 @@ import React, { useEffect, useState } from 'react';
 import './cart.scss';
 import RemoveIcon from '@mui/icons-material/Remove';
 import AddIcon from '@mui/icons-material/Add';
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import StripeCheckout from "react-stripe-checkout";
+import { removeProduct, addToCart, decreaseCart } from "../../redux/cartRedux"
 import { userRequest } from "../../assets/utilities/requestMethods"
 import { useHistory } from "react-router";
 
 const KEY = process.env.REACT_APP_STRIPE;
 
 const Cart = () => {
+
+    const dispatch = useDispatch();
 
     const cart = useSelector(state => state.cart);
     const [stripeToken, setStripeToken] = useState(null);
@@ -18,6 +21,14 @@ const Cart = () => {
     const onToken = token => {
         setStripeToken(token);
     };
+
+    const handleAddToCart = (product) => {
+        dispatch(addToCart(product));
+    };
+
+    const handleDecreaseCart = (product) => {
+         dispatch(decreaseCart(product));
+     };
 
     useEffect(() => {
         const makeRequest = async () => {
@@ -34,6 +45,10 @@ const Cart = () => {
         };
         stripeToken && cart.total >= 1 && makeRequest();
     }, [stripeToken, cart.total, history, cart]);
+
+    const handleRemoveProduct = (product) => {
+        dispatch(removeProduct(product));
+    };
 
     return (
         <div className="cart">
@@ -62,11 +77,12 @@ const Cart = () => {
                             </div>
                             <div className="priceDetail">
                                 <div className="productAmountContainer">
-                                    <RemoveIcon />
+                                    <RemoveIcon onClick={() => handleDecreaseCart(product)} />
                                     <div className="productAmount">{product.quantity}</div>
-                                    <AddIcon />
+                                    <AddIcon onClick={() => handleAddToCart(product)} />
                                 </div>
                                 <div className="productPrice">$ {product.price * product.quantity}</div>
+                                <div className="remove" onClick={() => handleRemoveProduct(product)}>X</div>
                             </div>
                         </div>
                     ))

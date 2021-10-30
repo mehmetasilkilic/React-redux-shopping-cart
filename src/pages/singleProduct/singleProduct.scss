@@ -53,33 +53,6 @@
             }
         }
 
-        .addContainer {
-            width: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-
-            .amountContainer {
-                display: flex;
-                align-items: center;
-                font-weight: 700;
-
-                span {
-                    font-size: $base-font-size;
-                    font-weight: bold;
-                    background-color: $lePink;
-                    color: $white;
-                    width: 30px;
-                    height: 30px;
-                    border-radius: $base-border-radius;
-                    border: 1px solid $leDarkPink;
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
-                    margin: 0px $base-margin;
-                }
-            }
-
             button {
                 padding: $base-padding 5px;
                 background-color: $leDarkPink;
@@ -96,4 +69,3 @@
             }
         }
     }
-}

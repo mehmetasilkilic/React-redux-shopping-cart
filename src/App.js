@@ -13,7 +13,8 @@ import Success from './pages/success/Success';
 
 function App() {
 
-  const user = useSelector(state => state.user.currentUser);
+  //const user = useSelector(state => state.user.currentUser);
+  const user = false;
 
   return (
     <div className="app">

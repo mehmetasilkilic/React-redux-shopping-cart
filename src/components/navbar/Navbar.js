@@ -6,9 +6,10 @@ import { Link } from 'react-router-dom'
 import { useSelector } from "react-redux"
 import './navbar.scss'
 
+
 const Navbar = () => {
 
-    const quantity = useSelector(state => state.cart.quantity)
+    const cartQuantity = useSelector(state => state.cart.quantity);
 
     return (
         <div className="navbar">
@@ -26,11 +27,12 @@ const Navbar = () => {
                     </Link>
                 </div>
                 <div className="right">
-                    <div className="menuItem">REGISTER</div>
-                    <div className="menuItem">SIGN IN</div>
+                    <Link to="/productlist"><div className="menuItem">PRODUCTS</div></Link>
+                    <Link to="/register"><div className="menuItem">REGISTER</div></Link>
+                    <Link to="/login"><div className="menuItem">SIGN IN</div></Link>
                     <Link to="/cart">
                         <div className="menuItem">
-                            <Badge badgeContent={quantity} color="error">
+                            <Badge badgeContent={cartQuantity} color="error">
                                 <ShoppingCartIcon />
                             </Badge>
                         </div>

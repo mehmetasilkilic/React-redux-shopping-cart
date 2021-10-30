@@ -12,7 +12,7 @@ const SingleProduct = () => {
 
     const location = useLocation();
     const id = location.pathname.split("/")[2];
-    const [product, setProduct] = useState({});
+    const [product, setProduct] = useState({}); 
     const [quantity, setQuantity] = useState(1);
     const dispatch = useDispatch();
     const [size, setSize] = useState("");
@@ -58,14 +58,7 @@ const SingleProduct = () => {
                         ))}
                     </select>
                 </div>
-                <div className="addContainer">
-                    <div className="amountContainer">
-                        <RemoveIcon onClick={() => handleQuantity("dec")} />
-                        <span>{quantity}</span>
-                        <AddIcon onClick={() => handleQuantity("inc")} />
-                    </div>
                     <button onClick={handleClick}>ADD TO CART</button>
-                </div>
             </div>
         </div>
     )
