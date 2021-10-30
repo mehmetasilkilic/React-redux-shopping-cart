@@ -53,19 +53,19 @@
             }
         }
 
-            button {
-                padding: $base-padding 5px;
-                background-color: $leDarkPink;
-                font-size: $base-font-size;
-                color: $leSand;
-                border: 1px solid $leDarkPink;
-                border-radius: $base-border-radius;
-                cursor: pointer;
-                transition: opacity 0.4s;
+        button {
+            padding: $base-padding 5px;
+            background-color: $leDarkPink;
+            font-size: $base-font-size;
+            color: $leSand;
+            border: 1px solid $leDarkPink;
+            border-radius: $base-border-radius;
+            cursor: pointer;
+            transition: opacity 0.4s;
 
-                &:hover {
-                    opacity: 0.9;
-                }
+            &:hover {
+                opacity: 0.9;
             }
         }
     }
+}

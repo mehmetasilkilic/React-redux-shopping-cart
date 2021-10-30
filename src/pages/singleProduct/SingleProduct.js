@@ -4,15 +4,12 @@ import { publicRequest } from '../../assets/utilities/requestMethods'
 import './singleProduct.scss'
 import { addProduct } from "../../redux/cartRedux"
 import { useDispatch } from "react-redux";
-import RemoveIcon from '@mui/icons-material/Remove';
-import AddIcon from '@mui/icons-material/Add';
-
 
 const SingleProduct = () => {
 
     const location = useLocation();
     const id = location.pathname.split("/")[2];
-    const [product, setProduct] = useState({}); 
+    const [product, setProduct] = useState({});
     const [quantity, setQuantity] = useState(1);
     const dispatch = useDispatch();
     const [size, setSize] = useState("");
@@ -26,15 +23,15 @@ const SingleProduct = () => {
         };
         getProduct()
     }, [id]);
-
-    const handleQuantity = type => {
-        if (type === "dec") {
-            quantity > 1 && setQuantity(quantity - 1);
-        } else {
-            setQuantity(quantity + 1);
-        }
-    };
-
+    /*
+        const handleQuantity = type => {
+            if (type === "dec") {
+                quantity > 1 && setQuantity(quantity - 1);
+            } else {
+                setQuantity(quantity + 1);
+            }
+        };
+    */
     const handleClick = () => {
         dispatch(addProduct({ ...product, quantity, size }));
     };
