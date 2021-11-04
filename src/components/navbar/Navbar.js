@@ -11,12 +11,14 @@ import './navbar.scss'
 const Navbar = () => {
 
     const cartQuantity = useSelector(state => state.cart.quantity);
+    const user = useSelector(state => state.user.currentUser);
     const dispatch = useDispatch();
 
-    const handleClick = e => { 
+    const handleClick = e => {
         e.preventDefault();
         logoutUser(dispatch);
     };
+    console.log(user);
 
     return (
         <div className="navbar">
@@ -35,9 +37,17 @@ const Navbar = () => {
                 </div>
                 <div className="right">
                     <Link to="/productlist"><div className="menuItem">PRODUCTS</div></Link>
-                    <Link to="/register"><div className="menuItem">REGISTER</div></Link>
-                    <Link to="/login"><div className="menuItem">SIGN IN</div></Link>
-                    <div onClick={handleClick} className="menuItem">LOGOUT</div>
+                    {user ? (<>
+                        <div className="menuItem">{user.username}</div>
+                        <div onClick={handleClick} className="menuItem">LOGOUT</div>
+                    </>
+                    ) : (
+                        <>
+                            <Link to="/register"><div className="menuItem">REGISTER</div></Link>
+                            <Link to="/login"><div className="menuItem">SIGN IN</div></Link>
+                        </>
+                    )
+                    }
                     <Link to="/cart">
                         <div className="menuItem">
                             <Badge badgeContent={cartQuantity} color="error">
@@ -47,7 +57,7 @@ const Navbar = () => {
                     </Link>
                 </div>
             </div>
-        </div>
+        </div >
     )
 }
 

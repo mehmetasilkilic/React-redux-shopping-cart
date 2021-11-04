@@ -1,7 +1,6 @@
 @import '/src/assets/scss/variables.scss';
 
 .register {
-    width: 100vw;
     height: 100vh;
     background: linear-gradient(
         rgba(255, 255, 255, 0.5),
@@ -17,7 +16,7 @@
     .wrapper {
         width: 40%;
         padding: $base-padding;
-        background-color: $white;
+        background-color: $leSand;
 
         form {
             display: flex;
@@ -26,9 +25,12 @@
             input {
                 flex: 1;
                 min-width: 40%;
+                background-color: $leSand;
                 margin: $base-margin 0;
                 padding: $base-padding;
                 outline: none;
+                border: 1px solid $leDarkPink;
+                border-radius: $base-border-radius;
             }
 
             span {
