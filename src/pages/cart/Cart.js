@@ -1,7 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import './cart.scss';
-import RemoveIcon from '@mui/icons-material/Remove';
-import AddIcon from '@mui/icons-material/Add';
 import { useSelector, useDispatch } from "react-redux";
 import StripeCheckout from "react-stripe-checkout";
 import { removeProduct, addToCart, decreaseCart } from "../../redux/cartRedux"
@@ -18,7 +16,7 @@ const Cart = () => {
     const [stripeToken, setStripeToken] = useState(null);
     const history = useHistory()
 
-    const onToken = token => {
+    const onToken = token => { 
         setStripeToken(token);
     };
 
@@ -77,9 +75,9 @@ const Cart = () => {
                             </div>
                             <div className="priceDetail">
                                 <div className="productAmountContainer">
-                                    <RemoveIcon onClick={() => handleDecreaseCart(product)} />
+                                    <div className="counter" onClick={() => handleDecreaseCart(product)}>-</div>
                                     <div className="productAmount">{product.quantity}</div>
-                                    <AddIcon onClick={() => handleAddToCart(product)} />
+                                    <div className="counter" onClick={() => handleAddToCart(product)}>+</div>
                                 </div>
                                 <div className="productPrice">$ {product.price * product.quantity}</div>
                                 <div className="remove" onClick={() => handleRemoveProduct(product)}>X</div>

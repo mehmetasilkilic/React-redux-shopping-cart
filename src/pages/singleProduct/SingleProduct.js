@@ -19,6 +19,7 @@ const SingleProduct = () => {
             try {
                 const res = await publicRequest.get("/products/find/" + id)
                 setProduct(res.data);
+                setSize(res.data.availableSizes[0]);
             } catch { }
         };
         getProduct()
@@ -33,7 +34,7 @@ const SingleProduct = () => {
         };
     */
     const handleClick = () => {
-        dispatch(addProduct({ ...product, quantity, size }));
+        dispatch(addProduct({ ...product, quantity, size}));
     };
 
     return (
@@ -49,7 +50,7 @@ const SingleProduct = () => {
                 <span>$ {product.price}</span>
                 <div className="filterContainer">
                     <span>Size</span>
-                    <select onChange={e => setSize(e.target.value)}>
+                    <select onChange={(e) => setSize(e.target.value)}>
                         {product.availableSizes?.map((s) => (
                             <option key={s}>{s}</option>
                         ))}

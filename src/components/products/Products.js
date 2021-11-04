@@ -41,14 +41,14 @@ const Products = ({ cat }) => {
                 ? a.price < b.price
                     ? 1
                     : -1
-                : a._id > b._id
+                : a._id > b._id 
                     ? 1
                     : -1
     )
 
     return (
         <div className="products">
-            <h2>Popular Products</h2>
+            <h2>All Products</h2>
             <hr />
             <FilterBar
                 length={
@@ -56,7 +56,7 @@ const Products = ({ cat }) => {
                     .filter(productNumber)
                     .length}
                 size={products.size}
-                sort={products.sort}
+                sort={products.sortItems}
                 filterProducts={e => { setSize(e.target.value) }}
                 sortProducts={e => { setSort(e.target.value) }}
             />

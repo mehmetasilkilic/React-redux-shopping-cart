@@ -79,17 +79,31 @@
                     .productAmountContainer {
                         display: flex;
                         align-items: center;
-                        margin-bottom: $base-margin;
 
                         .productAmount {
                             font-size: $base-font-size;
                             margin: $base-margin;
+                            padding: $base-padding;
+                            border: 1px solid $leDarkPink;
+                        }
+
+                        .counter {
+                            cursor: pointer;
+                            padding: $base-padding;
+                            border: 1px solid $leDarkPink;
                         }
                     }
 
                     .productPrice {
                         font-size: $font-size-xl;
                         font-weight: 200;
+                    }
+
+                    .remove {
+                        cursor: pointer;
+                        margin: $base-margin;
+                        padding: $base-padding;
+                        border: 1px solid $leDarkPink;
                     }
                 }
             }

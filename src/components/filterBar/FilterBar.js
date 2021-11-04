@@ -7,7 +7,7 @@ const FilterBar = props => {
             <div className="filter-result">{props.length} Products</div>
             <div className="filter-sort">
                 Order
-                <select value={props.sort} onChange={props.sortProducts}>
+                <select value={props.sortItems} onChange={props.sortProducts}>
                     <option value="latest">Latest</option>
                     <option value="lowest">Lowest</option>
                     <option value="highest">Highest</option>
