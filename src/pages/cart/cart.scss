@@ -1,9 +1,16 @@
+@import '/src/assets/scss/breakpoints.scss';
 @import '/src/assets/scss/variables.scss';
 
 .cart {
     padding: $base-padding;
-    width: 90%;
+    width: 80%;
+    min-height: 70vh;
     margin: 0 auto;
+
+    @include media('<=desktop') {
+        width: 100%;
+        margin: 20px 0;
+    }
 
     h1 {
         font-weight: 300;
@@ -18,10 +25,10 @@
 
         button {
             padding: $base-padding 5px;
-            background-color: $leDarkPink;
+            background-color: $gray;
             font-size: $base-font-size;
-            color: $leSand;
-            border: 1px solid $leDarkPink;
+            color: $lightGray;
+            border: 1px solid $gray;
             border-radius: $base-border-radius;
             cursor: pointer;
             transition: opacity 0.4s;
@@ -42,6 +49,10 @@
         display: flex;
         justify-content: space-between;
 
+        @include media('<=tablet') {
+            flex-direction: column;
+        }
+
         .info {
             flex: 3;
 
@@ -57,8 +68,14 @@
                     display: flex;
 
                     img {
-                        width: 200px;
+                        object-fit: cover;
                         border-radius: $base-border-radius;
+                        height: 30vh;
+                        width: 20vh;
+
+                        @include media('<=tablet') {
+                            height: 20vh;
+                        }
                     }
 
                     .details {
@@ -115,7 +132,11 @@
             border-radius: $base-border-radius;
             padding: 20px;
             margin: 0 0 0 20px;
-            height: 50vh;
+            height: 35vh;
+
+            @include media('<=tablet') {
+                margin: 0;
+            }
 
             h2 {
                 font-weight: 200;
@@ -130,11 +151,12 @@
             }
 
             button {
+                margin-top: $base-margin;
                 padding: $base-padding 5px;
-                background-color: $leDarkPink;
+                background-color: $gray;
                 font-size: $base-font-size;
-                color: $leSand;
-                border: 1px solid $leDarkPink;
+                color: $lightGray;
+                border: 1px solid $gray;
                 border-radius: $base-border-radius;
                 cursor: pointer;
                 transition: opacity 0.4s;

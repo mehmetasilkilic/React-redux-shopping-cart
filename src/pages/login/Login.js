@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from "react-redux";
+import { Link } from 'react-router-dom'
 import { login } from '../../redux/apiCalls';
 import './login.scss';
 
@@ -18,14 +19,19 @@ const Login = () => {
     return (
         <div className="login">
             <div className="wrapper">
-                <h1>SIGN IN</h1>
+                <div className="titleWrapper">
+                    <Link to="/login"><h2 className="log">LOGIN</h2></Link>
+                    <Link to="/register"><h2>REGISTER</h2></Link>
+                </div>
                 <form>
                     <input placeholder="username" onChange={e => setUsername(e.target.value)} />
                     <input placeholder="password" type="password" onChange={e => setPassword(e.target.value)} />
-                    <button onClick={handleClick} disabled={isFetching}>LOGIN</button>
+                    <div className="buttonWrapper">
+                        <button onClick={handleClick} disabled={isFetching}>LOGIN</button>
+                        <button>Remember Me</button>
+                        <button>Forgot Your Password?</button>
+                    </div>
                     {error && <span>Something went wrong...</span>}
-                    <a href="/">DO YOU NOT REMEMBER THE PASSWORD?</a>
-                    <a href="/">CREATE A NEW ACCOUNT</a>
                 </form>
             </div>
         </div>

@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import './cart.scss';
 import { useSelector, useDispatch } from "react-redux";
 import StripeCheckout from "react-stripe-checkout";
+import { Link } from 'react-router-dom'
 import { removeProduct, addToCart, decreaseCart } from "../../redux/cartRedux"
 import { userRequest } from "../../assets/utilities/requestMethods"
 import { useHistory } from "react-router";
@@ -52,8 +53,7 @@ const Cart = () => {
         <div className="cart">
             <h1>YOUR BAG</h1>
             <div className="top">
-                <button>CONTINUE SHOPPING</button>
-                <button type="filled">CHECKOUT NOW</button>
+                <Link to={`/products/jackets`}><button>CONTINUE SHOPPING</button></Link>
             </div>
             <div className="bottom">
                 <div className="info">

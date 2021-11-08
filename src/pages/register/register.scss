@@ -1,6 +1,8 @@
 @import '/src/assets/scss/variables.scss';
+@import '/src/assets/scss/breakpoints.scss';
 
 .register {
+    width: 100vw;
     height: 100vh;
     background: linear-gradient(
         rgba(255, 255, 255, 0.5),
@@ -14,42 +16,85 @@
     justify-content: center;
 
     .wrapper {
-        width: 40%;
+        width: 30%;
         padding: $base-padding;
-        background-color: $leSand;
+        background: $white;
+
+        @include media('<=desktop') {
+            width: 60%;
+        }
+
+        @include media('<=tablet') {
+            width: 80%;
+        }
+
+        .titleWrapper {
+            display: flex;
+            justify-content: space-around;
+
+            h2 {
+                padding: 0 30px;
+                color: $darkGray;
+                cursor: pointer;
+
+                &:hover {
+                    color: gray;
+                }
+            }
+
+            .reg {
+                border-bottom: 3px solid $gray;
+            }
+        }
 
         form {
             display: flex;
-            flex-direction: column;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            margin-top: $base-margin;
 
             input {
-                flex: 1;
-                min-width: 40%;
-                background-color: $leSand;
+                width: 48%;
                 margin: $base-margin 0;
                 padding: $base-padding;
                 outline: none;
-                border: 1px solid $leDarkPink;
-                border-radius: $base-border-radius;
+                border: 1px solid $gray;
+                background: $white;
+
+                &:focus {
+                    border: 1px solid $darkGray;
+                }
             }
 
-            span {
-                font-size: $base-font-size;
-                margin: $base-margin 0;
-            }
+            .regWrapper {
+                width: 100%;
+                margin-top: $base-margin;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
 
-            button {
-                padding: $base-padding 5px;
-                background-color: $leDarkPink;
-                font-size: $base-font-size;
-                color: $leSand;
-                border: 1px solid $leDarkPink;
-                border-radius: $base-border-radius;
-                cursor: pointer;
-                transition: opacity 0.4s;
+                button {
+                    padding: $base-padding;
+                    font-size: $base-font-size;
+                    color: $gray;
+                    background-color: $white;
+                    border: 2px solid $gray;
+                    cursor: pointer;
+                    transition: 0.4;
 
-                &:hover {
-                    opacity: 0.9;
+                    &:disabled{
+                        opacity: 0.3;
+                        cursor: not-allowed;
+                    }
+                    &:hover {
+                        background-color: $gray;
+                        color: $white;
+                    }
+                }
+
+                span {
+                    color: $darkGray;
+                    font-size: $base-font-size;
                 }
             }
         }

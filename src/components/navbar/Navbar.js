@@ -18,7 +18,6 @@ const Navbar = () => {
         e.preventDefault();
         logoutUser(dispatch);
     };
-    console.log(user);
 
     return (
         <div className="navbar">
@@ -36,15 +35,15 @@ const Navbar = () => {
                     </Link>
                 </div>
                 <div className="right">
-                    <Link to="/productlist"><div className="menuItem">PRODUCTS</div></Link>
+                    <Link to={`/products/jackets`}><div className="menuItem">PRODUCTS</div></Link>
                     {user ? (<>
                         <div className="menuItem">{user.username}</div>
-                        <div onClick={handleClick} className="menuItem">LOGOUT</div>
+                        <div onClick={handleClick} className="menuItem">{user && "LOGOUT"}</div>
                     </>
                     ) : (
                         <>
+                            <Link to="/login"><div className="menuItem">LOGIN</div></Link>
                             <Link to="/register"><div className="menuItem">REGISTER</div></Link>
-                            <Link to="/login"><div className="menuItem">SIGN IN</div></Link>
                         </>
                     )
                     }

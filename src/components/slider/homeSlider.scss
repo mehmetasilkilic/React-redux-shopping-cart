@@ -1,46 +1,86 @@
 @import '/src/assets/scss/variables.scss';
+@import '/src/assets/scss/breakpoints.scss';
 
 .homeSlider {
-    height: 94vh;
+    margin: 0 0 20px 0;
+    max-height: 40vw;
     overflow: hidden;
+    
+    background: linear-gradient(
+            rgba(255, 255, 255, 0.5),
+            rgba(255, 255, 255, 0.5)
+          );
 
     .slide {
         display: flex !important;
         align-items: center;
+        justify-content: center;
+        position: relative;
 
-        .slideImg {
-            flex: 1;
-            height: 94vh;
-            object-fit: cover;
+        .imgContainer {
+            max-height: 40vw;
+
+            .imgOverlay {
+                width: 100%;
+                height: 100%;
+                background-color: $black;
+                position: absolute;
+                opacity: 0.5;
+            }
+
+            .slideImg {
+                width: 100vw;
+            }
         }
-
         .infoContainer {
-            flex: 1;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%,-50%);
+            width: 100%;
+            align-items: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
             padding: 50px;
 
+            @include media('<=tablet') {
+                padding: 20px;
+            }
+
             .title {
-                font-size: 70px;
+                font-size: 4vw;
+                color: $leSand;
             }
 
             .desc {
+                color: $leSand;
                 margin: 50px 0px;
-                font-size: 20px;
+                font-size: 1.5vw;
                 font-weight: 500;
                 letter-spacing: 3px;
+
+                @include media('<=tablet') {
+                    margin: 20px 0;
+                }
             }
 
             button {
                 padding: $base-padding;
-                background-color: $leDarkPink;
-                font-size: $base-font-size;
+                font-size: 1.5vw;
                 color: $leSand;
-                border: 1px solid $leDarkPink;
-                border-radius: $base-border-radius;
+                border: 3px solid $leSand;
+                background: transparent;
                 cursor: pointer;
-                transition: opacity 0.4s;
+                transition: 0.4s;
     
                 &:hover {
-                    opacity: 0.9;
+                    background: $leSand;
+                    color: $white;
+                }
+
+                @include media('<=tablet') {
+                    padding: 5px;
                 }
             }    
         }

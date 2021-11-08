@@ -13,7 +13,7 @@ const Footer = () => {
             <div className="left">
                 <h2 className="logo">BRAND.</h2>
                 <p className="desc">
-                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Deleniti qui facere eligendi quidem! Vero cumque repellendus eaque ducimus rem iusto sit pariatur officia officiis. Culpa maiores quam ducimus rem? Odio.
+                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Deleniti qui facere eligendi quidem!
                 </p>
                 <div className="socialContainer">
                     <div className="socialIcon">

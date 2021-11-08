@@ -67,7 +67,7 @@ const Products = ({ cat }) => {
                         .sort(orderProducts)
                         .filter(productNumber)
                         .map((item, id) => (
-                            <div className="card-wrapper col-sm-12 col-md-6 col-lg-4 col-2" key={id}>
+                            <div className="card-wrapper" key={id}>
                                 <Product
                                     img={item.img}
                                     title={item.title}
