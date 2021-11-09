@@ -14,8 +14,7 @@ const Navbar = () => {
     const user = useSelector(state => state.user.currentUser);
     const dispatch = useDispatch();
 
-    const handleClick = e => {
-        e.preventDefault();
+    const handleClick = () => {
         logoutUser(dispatch);
     };
 
